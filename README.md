@@ -17,18 +17,18 @@ Data Science undergraduate student in IIT Madras  BS DEGREE interested in applie
 
 ### [Remi](https://github.com/gour4v97/remi)
 
-A voice-controlled browser for Windows, in C#/.NET. Speak a command in English, Hindi, or Hinglish — "open youtube", "youtube kholo", "search ..." — and Remi drives the browser over the Chrome DevTools Protocol: opening sites, searching, scrolling, switching tabs, clicking, and playing or pausing media, with spoken confirmations.
+A voice-controlled browser for Windows, in pure Python. Speak a command in English, Hindi, or Hinglish — "open youtube", "youtube kholo", "search ..." — and Remi drives the browser over the Chrome DevTools Protocol: opening sites, searching, scrolling, switching tabs, clicking, and playing or pausing media, with spoken confirmations.
 
 - Speech is transcribed locally with Whisper — nothing leaves the machine by default.
-- This repo is the Remi Suite: it contains both apps in one solution — Remi Browser and VoiceTrans (below) — sharing the same local voice engine, and both can run side by side.
+- This repo is the Remi Suite: it contains both apps in one codebase — Remi Browser and Voice Trans (below) — sharing the same local voice engine, and both can run side by side.
 
-### [Voice Trans](https://github.com/gour4v97/voice-trans)
+### Voice Trans
 
 Push-to-talk dictation for Windows, in C#/.NET. Press the hotkey, speak in Hindi, English, or Hinglish, press it again, and the transcript is typed into whatever app has focus.
 
 - Local Whisper transcription (optional Groq cloud if you enable it yourself).
 - Devanagari → Roman transliteration for Hinglish output, a pronunciation dictionary, and local-only history.
-- This is the standalone repository for the dictation app; the same app also ships inside the [Remi](https://github.com/gour4v97/remi) suite repo, next to the voice browser.
+- The public source is the Python edition in the [Remi](https://github.com/gour4v97/remi) suite repo; a standalone C#/.NET edition is developed privately.
 
 ### [3D Cardiovascular Risk Explorer](https://github.com/gour4v97/3d-cardiovascular-risk-explorer)
 
@@ -39,9 +39,16 @@ An educational ML prototype that estimates cardiovascular-risk likelihood from c
 - An educational prototype, not a clinical diagnostic tool.
 - [Repository](https://github.com/gour4v97/3d-cardiovascular-risk-explorer) · [Live demo](https://3d-cardiovascular-risk-explorer-pgd4.vercel.app)
 
+### [GlassTab](https://github.com/gour4v97/glasstab)
+
+A Comet-style glassmorphism New Tab extension for Brave and Chrome — an AI-first search bar over animated mesh gradients, frosted-glass cards, quick links, weather, and deep customization.
+
+- Manifest V3, vanilla JavaScript — no build step, no frameworks, no tracking.
+- Weather via Open-Meteo with no API key and no geolocation permission; settings sync through `chrome.storage.sync`.
+
 ## What I work with
 
-Python · pandas · NumPy · scikit-learn · FastAPI · C# · .NET · Whisper · Git/GitHub · HTML/CSS · Three.js
+Python · pandas · NumPy · scikit-learn · FastAPI · C# · .NET · JavaScript · Whisper · Git/GitHub · HTML/CSS · Three.js
 
 ## Currently exploring
 
