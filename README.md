@@ -1,6 +1,6 @@
 # Hi, I'm Gourav
 
-Data Science undergraduate at IIT Madras interested in applied ML, AI systems, and privacy-focused software engineering.
+Data Science undergraduate student in IIT Madras  BS DEGREE interested in applied ML, AI systems, and privacy-focused software engineering.
 
 ![Visitors](https://komarev.com/ghpvc/?username=gour4v97&label=visitors&color=0f766e&style=flat-square)
 
