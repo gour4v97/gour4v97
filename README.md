@@ -50,5 +50,4 @@ Statistical inference, SQL, model evaluation, and production-oriented machine-le
 ## Contact
 
 - Email: gouravmanjhi97@gmail.com
-- LinkedIn: [linkedin.com/in/gourav-manjhi-94335b312](https://www.linkedin.com/in/gourav-manjhi-94335b312/)
 - GitHub: [github.com/gour4v97](https://github.com/gour4v97)
