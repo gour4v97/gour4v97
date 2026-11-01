@@ -1,0 +1,106 @@
+{
+  "user": "gour4v97",
+  "generated_at": "2026-11-01T12:38:39.286626+00:00",
+  "total_commits": 37,
+  "active_days": 4,
+  "months": [
+    {
+      "month": "2025-12",
+      "commits": 0
+    },
+    {
+      "month": "2026-01",
+      "commits": 0
+    },
+    {
+      "month": "2026-02",
+      "commits": 0
+    },
+    {
+      "month": "2026-03",
+      "commits": 0
+    },
+    {
+      "month": "2026-04",
+      "commits": 0
+    },
+    {
+      "month": "2026-05",
+      "commits": 0
+    },
+    {
+      "month": "2026-06",
+      "commits": 0
+    },
+    {
+      "month": "2026-07",
+      "commits": 0
+    },
+    {
+      "month": "2026-08",
+      "commits": 0
+    },
+    {
+      "month": "2026-09",
+      "commits": 0
+    },
+    {
+      "month": "2026-10",
+      "commits": 31
+    },
+    {
+      "month": "2026-11",
+      "commits": 6
+    }
+  ],
+  "languages": {
+    "C#": 236681,
+    "Python": 42896,
+    "CSS": 11521,
+    "HTML": 4093,
+    "Dockerfile": 218,
+    "Makefile": 138
+  },
+  "projects": [
+    {
+      "name": "remi",
+      "description": "Voice-controlled browser for Windows \u2014 speak English/Hindi/Hinglish commands, locally transcribed, browser driven over CDP. By gour4v97",
+      "language": "C#",
+      "languages": {
+        "C#": 153581
+      },
+      "commits": 3,
+      "created": "2026-11-01",
+      "pushed": "2026-11-01",
+      "url": "https://github.com/gour4v97/remi"
+    },
+    {
+      "name": "voice-trans",
+      "description": "Push-to-talk dictation for Windows - local Whisper, Hindi / English / Hinglish",
+      "language": "C#",
+      "languages": {
+        "C#": 83100
+      },
+      "commits": 3,
+      "created": "2026-11-01",
+      "pushed": "2026-11-01",
+      "url": "https://github.com/gour4v97/voice-trans"
+    },
+    {
+      "name": "3d-cardiovascular-risk-explorer",
+      "description": "Educational ML app - coronary risk prediction, FastAPI + scikit-learn + SHAP, 3D heart",
+      "language": "Python",
+      "languages": {
+        "Python": 42896,
+        "CSS": 11521,
+        "HTML": 4093,
+        "Dockerfile": 218,
+        "Makefile": 138
+      },
+      "commits": 31,
+      "created": "2026-10-15",
+      "pushed": "2026-10-30",
+      "url": "https://github.com/gour4v97/3d-cardiovascular-risk-explorer"
+    }
+  ]
+}
