@@ -23,6 +23,14 @@ Two Windows voice apps in pure Python, sharing one local voice engine. Everythin
 - **Remi Browser** — a voice-controlled browser (`Ctrl+Alt+B`): 40+ commands in English/Hindi/Hinglish drive Chrome/Edge over the Chrome DevTools Protocol — open, search, scroll, tabs, click, play/pause — with spoken confirmations.
 - A persistent whisper.cpp server keeps the model warm and shared between both apps; on an NVIDIA GPU transcription takes ~0.3 s (CUDA build), with a transparent CPU fallback.
 
+### Voice Trans
+
+Push-to-talk dictation for Windows, in Python. Press the hotkey (`Ctrl+Alt+Space`), speak in Hindi, English, or Hinglish, press it again, and the transcript is typed into whatever app has focus.
+
+- Local Whisper transcription via whisper.cpp — nothing leaves the machine.
+- Devanagari → Roman transliteration for Hinglish output, a pronunciation dictionary, and local-only history.
+- Voice Trans is now part of the [Remi Suite](https://github.com/gour4v97/remi) above, where it is maintained and developed; its original standalone repository is private.
+
 ### [3D Cardiovascular Risk Explorer](https://github.com/gour4v97/3d-cardiovascular-risk-explorer)
 
 An educational ML prototype that estimates cardiovascular-risk likelihood from clinical features, with interactive 3D visualisation, a FastAPI backend, SHAP explanations, and documented model limitations.
