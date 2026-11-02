@@ -22,8 +22,8 @@ USER = "gour4v97"
 FALLBACK_DESC = {
     "3d-cardiovascular-risk-explorer":
         "Educational ML app - coronary risk prediction, FastAPI + scikit-learn + SHAP, 3D heart",
-    "voice-trans":
-        "Push-to-talk dictation for Windows - local Whisper, Hindi / English / Hinglish",
+    "glasstab":
+        "Comet-style glassmorphism New Tab extension for Brave/Chrome - vanilla JS, Manifest V3",
 }
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"

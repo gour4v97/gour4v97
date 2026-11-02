@@ -1,6 +1,6 @@
 # Hi, I'm Gourav
 
-Data Science undergraduate student in IIT Madras  BS DEGREE interested in applied ML, AI systems, and privacy-focused software engineering.
+Data Science undergraduate at IIT Madras interested in applied ML, AI systems, and privacy-focused software engineering.
 
 ![Visitors](https://komarev.com/ghpvc/?username=gour4v97&label=visitors&color=0f766e&style=flat-square)
 
@@ -15,20 +15,13 @@ Data Science undergraduate student in IIT Madras  BS DEGREE interested in applie
 
 ## Projects
 
-### [Remi](https://github.com/gour4v97/remi)
+### [Remi](https://github.com/gour4v97/remi) — Remi Suite
 
-A voice-controlled browser for Windows, in pure Python. Speak a command in English, Hindi, or Hinglish — "open youtube", "youtube kholo", "search ..." — and Remi drives the browser over the Chrome DevTools Protocol: opening sites, searching, scrolling, switching tabs, clicking, and playing or pausing media, with spoken confirmations.
+Two Windows voice apps in pure Python, sharing one local voice engine. Everything runs locally — your voice never leaves the machine.
 
-- Speech is transcribed locally with Whisper — nothing leaves the machine by default.
-- This repo is the Remi Suite: it contains both apps in one codebase — Remi Browser and Voice Trans (below) — sharing the same local voice engine, and both can run side by side.
-
-### Voice Trans
-
-Push-to-talk dictation for Windows, in C#/.NET. Press the hotkey, speak in Hindi, English, or Hinglish, press it again, and the transcript is typed into whatever app has focus.
-
-- Local Whisper transcription (optional Groq cloud if you enable it yourself).
-- Devanagari → Roman transliteration for Hinglish output, a pronunciation dictionary, and local-only history.
-- The public source is the Python edition in the [Remi](https://github.com/gour4v97/remi) suite repo; a standalone C#/.NET edition is developed privately.
+- **Voice Trans** — push-to-talk dictation (`Ctrl+Alt+Space`): speak in English, Hindi, or Hinglish, and the transcript is typed into whatever app has focus, with Devanagari → Roman transliteration and a pronunciation dictionary.
+- **Remi Browser** — a voice-controlled browser (`Ctrl+Alt+B`): 40+ commands in English/Hindi/Hinglish drive Chrome/Edge over the Chrome DevTools Protocol — open, search, scroll, tabs, click, play/pause — with spoken confirmations.
+- A persistent whisper.cpp server keeps the model warm and shared between both apps; on an NVIDIA GPU transcription takes ~0.3 s (CUDA build), with a transparent CPU fallback.
 
 ### [3D Cardiovascular Risk Explorer](https://github.com/gour4v97/3d-cardiovascular-risk-explorer)
 
@@ -41,14 +34,15 @@ An educational ML prototype that estimates cardiovascular-risk likelihood from c
 
 ### [GlassTab](https://github.com/gour4v97/glasstab)
 
-A Comet-style glassmorphism New Tab extension for Brave and Chrome — an AI-first search bar over animated mesh gradients, frosted-glass cards, quick links, weather, and deep customization.
+A Comet-style glassmorphism New Tab page for Brave and Chrome, built as a Manifest V3 extension in vanilla JavaScript — no build step, no frameworks, no tracking.
 
-- Manifest V3, vanilla JavaScript — no build step, no frameworks, no tracking.
-- Weather via Open-Meteo with no API key and no geolocation permission; settings sync through `chrome.storage.sync`.
+- AI-first search pill that hands off to Gemini, Perplexity, ChatGPT, Claude, or Duck.ai.
+- Frosted-glass cards with adjustable blur, opacity, and radius; animated mesh-gradient backgrounds, quick links, weather (Open-Meteo, no API key), and recent bookmarks.
+- Settings sync via `chrome.storage.sync`; reduce-transparency and reduced-motion support built in.
 
 ## What I work with
 
-Python · pandas · NumPy · scikit-learn · FastAPI · C# · .NET · JavaScript · Whisper · Git/GitHub · HTML/CSS · Three.js
+Python · pandas · NumPy · scikit-learn · FastAPI · JavaScript · HTML/CSS · Three.js · Whisper (whisper.cpp) · Chrome DevTools Protocol · Git/GitHub
 
 ## Currently exploring
 
@@ -57,4 +51,5 @@ Statistical inference, SQL, model evaluation, and production-oriented machine-le
 ## Contact
 
 - Email: gouravmanjhi97@gmail.com
+- LinkedIn: [linkedin.com/in/gourav-manjhi-94335b312](https://www.linkedin.com/in/gourav-manjhi-94335b312/)
 - GitHub: [github.com/gour4v97](https://github.com/gour4v97)

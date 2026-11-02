@@ -1,7 +1,7 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-01T12:38:39.286626+00:00",
-  "total_commits": 37,
+  "generated_at": "2026-11-02T06:33:18.617145+00:00",
+  "total_commits": 53,
   "active_days": 4,
   "months": [
     {
@@ -50,56 +50,60 @@
     },
     {
       "month": "2026-11",
-      "commits": 6
+      "commits": 22
     }
   ],
   "languages": {
-    "C#": 236681,
-    "Python": 42896,
-    "CSS": 11521,
-    "HTML": 4093,
+    "JavaScript": 42503,
+    "CSS": 28677,
+    "HTML": 9745,
+    "PowerShell": 2886,
+    "Python": 102105,
     "Dockerfile": 218,
     "Makefile": 138
   },
   "projects": [
     {
-      "name": "remi",
-      "description": "Voice-controlled browser for Windows \u2014 speak English/Hindi/Hinglish commands, locally transcribed, browser driven over CDP. By gour4v97",
-      "language": "C#",
+      "name": "glasstab",
+      "description": "Comet-style glassmorphism New Tab for Brave/Chrome \u2014 AI-first search, frosted glass cards, quick links, weather, deep customization.",
+      "language": "JavaScript",
       "languages": {
-        "C#": 153581
+        "JavaScript": 42503,
+        "CSS": 17156,
+        "HTML": 5652,
+        "PowerShell": 2886
       },
-      "commits": 3,
+      "commits": 10,
+      "created": "2026-11-01",
+      "pushed": "2026-11-01",
+      "url": "https://github.com/gour4v97/glasstab"
+    },
+    {
+      "name": "remi",
+      "description": "Remi Suite \u2014 two Windows voice apps in pure Python: push-to-talk dictation and a voice-controlled browser over CDP. English/Hindi/Hinglish, fully local Whisper transcription.",
+      "language": "Python",
+      "languages": {
+        "Python": 57903
+      },
+      "commits": 11,
       "created": "2026-11-01",
       "pushed": "2026-11-01",
       "url": "https://github.com/gour4v97/remi"
     },
     {
-      "name": "voice-trans",
-      "description": "Push-to-talk dictation for Windows - local Whisper, Hindi / English / Hinglish",
-      "language": "C#",
-      "languages": {
-        "C#": 83100
-      },
-      "commits": 3,
-      "created": "2026-11-01",
-      "pushed": "2026-11-01",
-      "url": "https://github.com/gour4v97/voice-trans"
-    },
-    {
       "name": "3d-cardiovascular-risk-explorer",
-      "description": "Educational ML app - coronary risk prediction, FastAPI + scikit-learn + SHAP, 3D heart",
+      "description": "Educational ML prototype \u2014 3D coronary viewer with FastAPI + SHAP explanations estimating CAD/LAD/LCX/RCA stenosis likelihood from 54 clinical features. Not a diagnostic device.",
       "language": "Python",
       "languages": {
-        "Python": 42896,
+        "Python": 44202,
         "CSS": 11521,
         "HTML": 4093,
         "Dockerfile": 218,
         "Makefile": 138
       },
-      "commits": 31,
+      "commits": 32,
       "created": "2026-10-15",
-      "pushed": "2026-10-30",
+      "pushed": "2026-11-01",
       "url": "https://github.com/gour4v97/3d-cardiovascular-risk-explorer"
     }
   ]
