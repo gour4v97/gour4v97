@@ -1,8 +1,8 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-02T06:33:18.617145+00:00",
-  "total_commits": 53,
-  "active_days": 4,
+  "generated_at": "2026-11-03T17:38:12.339981+00:00",
+  "total_commits": 60,
+  "active_days": 5,
   "months": [
     {
       "month": "2025-12",
@@ -50,13 +50,13 @@
     },
     {
       "month": "2026-11",
-      "commits": 22
+      "commits": 29
     }
   ],
   "languages": {
-    "JavaScript": 42503,
-    "CSS": 28677,
-    "HTML": 9745,
+    "JavaScript": 44566,
+    "CSS": 28798,
+    "HTML": 9854,
     "PowerShell": 2886,
     "Python": 102105,
     "Dockerfile": 218,
@@ -68,14 +68,14 @@
       "description": "Comet-style glassmorphism New Tab for Brave/Chrome \u2014 AI-first search, frosted glass cards, quick links, weather, deep customization.",
       "language": "JavaScript",
       "languages": {
-        "JavaScript": 42503,
-        "CSS": 17156,
-        "HTML": 5652,
+        "JavaScript": 44566,
+        "CSS": 17277,
+        "HTML": 5761,
         "PowerShell": 2886
       },
-      "commits": 10,
+      "commits": 17,
       "created": "2026-11-01",
-      "pushed": "2026-11-01",
+      "pushed": "2026-11-03",
       "url": "https://github.com/gour4v97/glasstab"
     },
     {
