@@ -48,6 +48,13 @@ A Comet-style glassmorphism New Tab page for Brave and Chrome, built as a Manife
 - Frosted-glass cards with adjustable blur, opacity, and radius; animated mesh-gradient backgrounds, quick links, weather (Open-Meteo, no API key), and recent bookmarks.
 - Settings sync via `chrome.storage.sync`; reduce-transparency and reduced-motion support built in.
 
+### [Windowbar](https://github.com/gour4v97/windowbar) — Winyard
+
+A smart dock for Windows 10/11, written in Python (PySide6): a row of 20 live cards — next calendar event, now playing, weather, CPU/RAM/battery, GitHub, Stripe balance, screen time, open windows, focus timer — in a glass dock that reserves screen space and can stand in for the taskbar. No account, no telemetry; everything runs locally.
+
+- Next event from a secret iCal link (Google, Outlook, iCloud), with an automation that pauses music a minute before a meeting.
+- Acrylic glass, top or bottom (drag it to an edge), full-width or pill, taskbar auto-hide restored safely on quit or crash.
+
 ## What I work with
 
 Python · pandas · NumPy · scikit-learn · FastAPI · JavaScript · HTML/CSS · Three.js · Whisper (whisper.cpp) · Chrome DevTools Protocol · Git/GitHub
