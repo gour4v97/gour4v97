@@ -56,7 +56,7 @@ A smart dock for Windows 10/11, written in Python (PySide6): a row of 20 live ca
 - Acrylic glass, top or bottom (drag it to an edge), full-width or pill, taskbar auto-hide restored safely on quit or crash.
 - Alt+Space keyboard launcher with fuzzy search, plus a theme engine with built-in and custom JSON themes.
 - Ships with a one-click installer (`setup.bat`) and auto-hide for fullscreen apps; releases on GitHub.
-- Now at feature parity with Dockyard (KDE): quick toggles (Wi-Fi, Bluetooth, airplane), volume control, world clocks, storage/network/progress widgets, a script widget, pinned apps with running dots and Win+1–9 switching, and per-widget popups (calendar month view, full todos, multiple notes).
+- Also: quick toggles (Wi-Fi, Bluetooth, airplane), volume control, world clocks, storage/network/progress widgets, a script widget, pinned apps with running dots and Win+1–9 switching, and per-widget popups (calendar month view, full todos, multiple notes).
 
 ## What I work with
 
