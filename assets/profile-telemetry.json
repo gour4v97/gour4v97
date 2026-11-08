@@ -1,8 +1,8 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-04T08:49:19.657801+00:00",
-  "total_commits": 64,
-  "active_days": 6,
+  "generated_at": "2026-11-08T06:33:03.273692+00:00",
+  "total_commits": 207,
+  "active_days": 9,
   "months": [
     {
       "month": "2025-12",
@@ -50,28 +50,48 @@
     },
     {
       "month": "2026-11",
-      "commits": 33
+      "commits": 176
     }
   ],
   "languages": {
+    "Python": 298958,
+    "PowerShell": 3622,
+    "Batchfile": 473,
     "JavaScript": 44566,
     "CSS": 28798,
     "HTML": 9854,
-    "PowerShell": 2886,
-    "Python": 102105,
     "Dockerfile": 218,
     "Makefile": 138
   },
   "projects": [
     {
       "name": "windowbar",
-      "description": "",
-      "language": "",
-      "languages": {},
-      "commits": 2,
+      "description": "Window-bar : A smart dock for Windows 10/11 in Python (PySide6): 20 live widgets, calendar, media, Stripe, screen time, glass effect. No account, no telemetry.\"",
+      "language": "Python",
+      "languages": {
+        "Python": 196853,
+        "PowerShell": 736,
+        "Batchfile": 473
+      },
+      "commits": 143,
       "created": "2026-11-04",
-      "pushed": "2026-11-04",
+      "pushed": "2026-11-08",
       "url": "https://github.com/gour4v97/windowbar"
+    },
+    {
+      "name": "glasstab",
+      "description": "Comet-style glassmorphism New Tab for Brave/Chrome \u2014 AI-first search, frosted glass cards, quick links, weather, deep customization.",
+      "language": "JavaScript",
+      "languages": {
+        "JavaScript": 44566,
+        "CSS": 17277,
+        "HTML": 5761,
+        "PowerShell": 2886
+      },
+      "commits": 19,
+      "created": "2026-11-01",
+      "pushed": "2026-11-08",
+      "url": "https://github.com/gour4v97/glasstab"
     },
     {
       "name": "remi",
@@ -84,21 +104,6 @@
       "created": "2026-11-01",
       "pushed": "2026-11-04",
       "url": "https://github.com/gour4v97/remi"
-    },
-    {
-      "name": "glasstab",
-      "description": "Comet-style glassmorphism New Tab for Brave/Chrome \u2014 AI-first search, frosted glass cards, quick links, weather, deep customization.",
-      "language": "JavaScript",
-      "languages": {
-        "JavaScript": 44566,
-        "CSS": 17277,
-        "HTML": 5761,
-        "PowerShell": 2886
-      },
-      "commits": 17,
-      "created": "2026-11-01",
-      "pushed": "2026-11-03",
-      "url": "https://github.com/gour4v97/glasstab"
     },
     {
       "name": "3d-cardiovascular-risk-explorer",
