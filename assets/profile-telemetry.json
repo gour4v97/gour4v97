@@ -1,8 +1,8 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-08T06:33:03.273692+00:00",
-  "total_commits": 207,
-  "active_days": 9,
+  "generated_at": "2026-11-09T14:11:15.939465+00:00",
+  "total_commits": 310,
+  "active_days": 10,
   "months": [
     {
       "month": "2025-12",
@@ -50,18 +50,19 @@
     },
     {
       "month": "2026-11",
-      "commits": 176
+      "commits": 279
     }
   ],
   "languages": {
-    "Python": 298958,
-    "PowerShell": 3622,
-    "Batchfile": 473,
+    "Python": 573976,
+    "PowerShell": 10672,
+    "Batchfile": 2072,
     "JavaScript": 44566,
     "CSS": 28798,
     "HTML": 9854,
-    "Dockerfile": 218,
-    "Makefile": 138
+    "Shell": 1438,
+    "Makefile": 1144,
+    "Dockerfile": 218
   },
   "projects": [
     {
@@ -69,14 +70,30 @@
       "description": "Window-bar : A smart dock for Windows 10/11 in Python (PySide6): 20 live widgets, calendar, media, Stripe, screen time, glass effect. No account, no telemetry.\"",
       "language": "Python",
       "languages": {
-        "Python": 196853,
+        "Python": 382449,
         "PowerShell": 736,
         "Batchfile": 473
       },
-      "commits": 143,
+      "commits": 239,
       "created": "2026-11-04",
-      "pushed": "2026-11-08",
+      "pushed": "2026-11-09",
       "url": "https://github.com/gour4v97/windowbar"
+    },
+    {
+      "name": "remi",
+      "description": "Remi Suite \u2014 two Windows voice apps in pure Python: push-to-talk dictation and a voice-controlled browser over CDP. English/Hindi/Hinglish, fully local Whisper transcription.",
+      "language": "Python",
+      "languages": {
+        "Python": 147325,
+        "PowerShell": 7050,
+        "Batchfile": 1599,
+        "Shell": 1438,
+        "Makefile": 1006
+      },
+      "commits": 20,
+      "created": "2026-11-01",
+      "pushed": "2026-11-09",
+      "url": "https://github.com/gour4v97/remi"
     },
     {
       "name": "glasstab",
@@ -92,18 +109,6 @@
       "created": "2026-11-01",
       "pushed": "2026-11-08",
       "url": "https://github.com/gour4v97/glasstab"
-    },
-    {
-      "name": "remi",
-      "description": "Remi Suite \u2014 two Windows voice apps in pure Python: push-to-talk dictation and a voice-controlled browser over CDP. English/Hindi/Hinglish, fully local Whisper transcription.",
-      "language": "Python",
-      "languages": {
-        "Python": 57903
-      },
-      "commits": 13,
-      "created": "2026-11-01",
-      "pushed": "2026-11-04",
-      "url": "https://github.com/gour4v97/remi"
     },
     {
       "name": "3d-cardiovascular-risk-explorer",
