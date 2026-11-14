@@ -1,6 +1,6 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-09T14:11:15.939465+00:00",
+  "generated_at": "2026-11-14T08:49:26.786263+00:00",
   "total_commits": 310,
   "active_days": 10,
   "months": [
@@ -67,7 +67,7 @@
   "projects": [
     {
       "name": "windowbar",
-      "description": "Window-bar : A smart dock for Windows 10/11 in Python (PySide6): 20 live widgets, calendar, media, Stripe, screen time, glass effect. No account, no telemetry.\"",
+      "description": "Windows Bar: A smart dock for Windows 10/11 in Python (PySide6): 28 live widgets, calendar, media, Stripe, screen time, glass effect. No account, no telemetry",
       "language": "Python",
       "languages": {
         "Python": 382449,
