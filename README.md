@@ -1,119 +1,79 @@
-# Windows Bar
+# Hi, I'm Gourav
 
-A smart dock for Windows 10/11, written in Python (PySide6). It sits at the top
-or bottom of the screen as a row of live cards — clock, calendar, media, system,
-money, focus tools — and reserves screen space so maximised windows stop at the
-dock instead of sliding under it.
+Data Science undergraduate interested in applied ML, AI systems, and privacy-focused software engineering.
 
-No account, no telemetry, no server. Everything runs locally.
+![Visitors](https://komarev.com/ghpvc/?username=gour4v97&label=visitors&color=0f766e&style=flat-square)
 
-## Install
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-activity-dark.svg" />
+  <img width="100%" src="./assets/profile-activity-light.svg" alt="Build activity over the last 12 months: total commits, active days, monthly commits, and commits by weekday" />
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-stack-dark.svg" />
+  <img width="100%" src="./assets/profile-stack-light.svg" alt="Projects and stack: language mix across public projects, with each project's commit count and last push date" />
+</picture>
 
-```
-pip install -r requirements.txt
-pip install --only-binary=:all: -r requirements-media.txt   # optional: Now playing widget
-python windowsbar.py
-```
+## Projects
 
-Open **Settings** from the dock menu to manage widgets, layout, themes, and hotkeys with a live preview. Right-click the dock for quick actions.
-Settings live in `%APPDATA%\Windows Bar\config.json`.
+### [Remi](https://github.com/gour4v97/remi) — Remi Suite
 
+Two Windows voice apps in pure Python, sharing one local voice engine, now built as a modular assistant platform. Everything runs locally — your voice never leaves the machine.
 
-Windows Bar starts a bar on each connected display, each with its own Settings window and saved widget/layout profile.
+- **Voice Trans** — push-to-talk dictation (`Ctrl+Alt+Space`): speak in English, Hindi, or Hinglish, and the transcript is typed into whatever app has focus, with Devanagari → Roman transliteration and a pronunciation dictionary.
+- **Remi Browser** — a voice-controlled browser (`Ctrl+Alt+B`): 40+ commands in English/Hindi/Hinglish drive Chrome/Edge over the Chrome DevTools Protocol — open, search, scroll, tabs, click, play/pause — with spoken confirmations.
+- A persistent whisper.cpp server keeps the model warm and shared between both apps; on an NVIDIA GPU transcription takes ~0.3 s (CUDA build), with a transparent CPU fallback.
+- Local LLM support: conversational commands are resolved on-device through Ollama, LM Studio, or llama.cpp backends, with a modular skills system for custom commands.
+- November latency pass: per-stage pipeline timing, a warm mic between commands, non-blocking speech, instant-paste dictation, and one reused browser connection. The README's benchmark table puts total turnaround at ~315 ms, down from ~1,645 ms on the RTX 4050 laptop (the README's own figures).
+- Also new: a desktop HUD pill in the browser agent (Listening / Thinking / Done / Error), voice-activity detection, a SQLite memory store that remembers the last ten turns ("open that again"), and new skills — a Hinglish morning digest and voice control for Calculator, Notepad, and more.
+- A local REST API (`remi serve`), a Click CLI (`remi setup`, `remi doctor`, `remi llm`, `remi skill`), and a one-click Windows installer with a setup wizard.
 
-## Widgets (28 configurable widgets)
+### Voice Trans
 
+Push-to-talk dictation for Windows, in Python. Press the hotkey (`Ctrl+Alt+Space`), speak in Hindi, English, or Hinglish, press it again, and the transcript is typed into whatever app has focus.
 
-| Widget | How it works |
-|---|---|
-| App launcher | pinned apps, edit `apps` in config.json. Running apps get a dot: click focuses (or minimises) instead of relaunching; right-click for Open new / Focus / Minimize / Close. `Alt+1`…`Alt+9` open or switch to them by default; change the modifier in the dock menu |
-| Open windows | buttons for your open windows; click one to bring it to front |
-| Weather | Open-Meteo, no API key; detail popup shows the current city and conditions, with refresh and city controls |
-| Now playing | Windows media session; click opens details and play/pause (needs `winsdk`) |
-| Next event | paste your calendar's secret iCal link (Google, Outlook, iCloud) |
-| Quick actions | Lock, Dark/Light theme, Empty Recycle Bin (with confirmation), Open any file/folder path, Power menu (Sleep, Sign out, Restart, Shut down) |
-| Recycle Bin | item count; click to empty |
-| Downloads | files added in the last 24h and the newest file; click to open the folder |
-| Screenshots | files added in the last 24h in `Pictures\Screenshots` |
-| Screen time | seconds per focused app today; idle time not counted; data kept 14 days |
-| GitHub | public repos and followers; set your username from the menu |
-| Stripe revenue | available balance; set your key in the `WINDOWSBAR_STRIPE_KEY` environment variable |
-| Notes | several notes; click opens the notes panel (pick, edit, add, delete) |
-| Focus / Stopwatch / Todos | click to use; double-click resets. Todos open a full panel: check to complete, completed ones sink below, delete per row |
-| Timer | plain countdown; click start/pause, double-click sets the minutes |
-| World clocks | up to three IANA time zones (menu sets them) |
-| Day / week / year progress | rotating progress bars |
-| Storage | disk used % and free space for the system drive |
-| Temperature | first available hardware sensor; optional and may report unavailable without a sensor provider |
-| Network | Wi-Fi name, local IP, live up/down speeds |
-| Volume | click opens volume and supported internal-display brightness sliders; right-click mutes, scroll adjusts volume |
-| Quick toggles | Wi-Fi, Bluetooth and airplane mode (needs `winsdk`, same as Now playing), keep-awake, mute. Do Not Disturb and Night Light are not included because Windows does not expose a stable supported API. |
-| Script | first two lines of your own shell command's output, refreshed on a timer; optional click command. Menu: "Set script command…" (`script_command`, `script_interval`, `script_click_command` in config) |
-| Calendar popup | click the Next event card for a month view with event days marked |
+- Local Whisper transcription via whisper.cpp — nothing leaves the machine.
+- Devanagari → Roman transliteration for Hinglish output, a pronunciation dictionary, and local-only history.
+- Voice Trans is now part of the [Remi Suite](https://github.com/gour4v97/remi) above, where it is maintained and developed; its original standalone repository is private.
 
-## Options
+### [3D Cardiovascular Risk Explorer](https://github.com/gour4v97/3d-cardiovascular-risk-explorer)
 
-- **Arrange widgets** — Settings → Widgets → Arrange widget order
-- **Auto-hide the Windows taskbar** while the dock runs — the taskbar's original state is restored on quit, and on the next start after a crash
-- **Glass effect** — acrylic / DWM backdrop on Windows 11, acrylic accent on older builds
-- **Themes** — built-in default, glass, light, and dark themes; JSON theme files can override colors, radius, font, spacing, and blur
-- **Widget styles** — use the Widget styles menu to set each widget’s accent, card background, text, button color, and corner radius
-- **Pause music before meetings** — pauses playback one minute before your next calendar event
-- **Quiet hours** (e.g. `23:00-07:00`) — the focus timer finishes silently
-- **Start with Windows** — adds/removes a Run key for the current user
-- **Auto-hide dock** — slides off screen after a few seconds away from it (delay settable, default 5s), and immediately when a fullscreen app (game, video, presentation) takes the screen; the reserved space is released while it is hidden, and it slides back when you touch the screen edge where it sits
-- **Clock style** — digital, or an analogue face (menu toggle)
-- **Presets** — one-click widget sets: Essentials, Focus, Creator, Everything
+An educational ML prototype that estimates cardiovascular-risk likelihood from clinical features, with interactive 3D visualisation, a FastAPI backend, SHAP explanations, and documented model limitations.
 
-## Launcher, themes and accent
+- End-to-end Python ML application, built and deployed.
+- Nested cross-validation, calibration, leakage checks, and model-quality reporting — including the targets that fall below their validation bars, kept visible on purpose.
+- Input validation on `/predict` and `/explain`: null, out-of-range, and unknown-category values return 422 instead of a confident wrong prediction; model artifacts are cached per request.
+- An educational prototype, not a clinical diagnostic tool.
+- [Repository](https://github.com/gour4v97/3d-cardiovascular-risk-explorer) · [Live demo](https://3d-cardiovascular-risk-explorer-pgd4.vercel.app)
 
-- **Launcher** — press `Alt+Space` anywhere. Fuzzy-search your apps, Start Menu programs and open windows; `↑ ↓` to pick, `Enter` to run, `Esc` to close. Type `> command` to run a shell command, `= 2*(3+4)` (or just `2*(3+4)`) to calculate (Enter copies the result), or a path to open it. Change the key with `launcher_hotkey` in config.json (e.g. `ctrl+shift+k`); turn it off from the menu.
-- **Themes** — menu > Theme: midnight (default), daylight, aurora, rose, mono. Add your own as JSON in `%APPDATA%\Windows Bar\themes\` (menu > Theme > Open themes folder creates an example). A theme only lists the keys it changes: `panel`, `glass`, `border`, `card`, `text`, `muted`, `button`, `accent` (`"#rrggbb"` or `[r,g,b,a]`, alpha 0-255), `radius`, `panel_radius`, `font`.
-- **Theme gallery** — starter `nord`, `forest`, and `ember` JSON themes live in [`themes/gallery/`](themes/gallery/); copy a JSON file into `%APPDATA%\Windows Bar\themes\` to use it.
-- **Widget contributions** — the source-level widget contract and template are in [`docs/widget-sdk.md`](docs/widget-sdk.md). Runtime plugins are supported but off by default: see [Plugins and language](#plugins-and-language).
-- **Contributing and localization** — see [`CONTRIBUTING.md`](CONTRIBUTING.md) and the [localization workflow](docs/localization.md); runtime translation is still in progress.
-- **Custom CSS** — drop a `custom.qss` into `%APPDATA%\Windows Bar\` and it is applied on top of the theme (Qt style sheets, a CSS subset).
-- **Dynamic accent** — the accent colour is derived from your wallpaper and follows it when it changes (hover, focused window, launcher selection). Turn it off in the menu to use the theme's own accent.
+### [GlassTab](https://github.com/gour4v97/glasstab)
 
-## Workspaces (Phase 4)
+A Comet-style glassmorphism New Tab page for Brave and Chrome, built as a Manifest V3 extension in vanilla JavaScript — no build step, no frameworks, no tracking.
 
-Open **Workspaces…** from the dock menu or the split toolbar. The viewer lists Windows virtual desktops, switches between them, creates/removes desktops, renames them, assigns an emoji or symbol, moves the last active app window, and sets a per-desktop wallpaper on supported Windows 11 builds. Virtual desktop support uses the [MIT-licensed `pyvda` package](https://github.com/mirober/pyvda); if its Windows interface is unavailable, previous/next/create actions fall back to Windows keyboard shortcuts and window movement/removal report the limitation.
+- AI-first search pill that hands off to Gemini, Perplexity, ChatGPT, Claude, or Duck.ai.
+- Frosted-glass cards with adjustable blur, opacity, and radius; animated mesh-gradient backgrounds, quick links, weather (Open-Meteo, no API key), and recent bookmarks.
+- Video wallpaper and motion preferences; recent performance work batches settings updates and cuts background paint cost.
+- Settings sync via `chrome.storage.sync`; reduce-transparency and reduced-motion support built in.
 
-To try the custom window switcher, enable **Settings → Hotkeys → Use Windows Bar window switcher for Alt+Tab**. Alt+Tab and Alt+Shift+Tab cycle, arrow keys move through the list, Enter or releasing Alt switches, and Esc cancels. The hook runs on a dedicated thread and is disabled by default.
+### [Windows Bar](https://github.com/gour4v97/windowbar) — Windows Bar
 
-Enable **Settings → Layout → Show draggable desktop widgets** to show a small clock and CPU/RAM/network panel on the primary display. Drag the panel to reposition it; its location is saved per display. It is placed at the bottom of the window z-order so ordinary app windows cover it.
+A smart dock for Windows 10/11, written in Python (PySide6): 28 live widgets — next calendar event, now playing, weather, CPU/RAM/battery, GitHub, Stripe balance, screen time, open windows, focus timer — in a glass dock that reserves screen space and can stand in for the taskbar. No account, no telemetry; everything runs locally.
 
-Phase 5 includes opt-in BSP, Columns, and Master / stack tiling in **Settings → Window manager**. While enabled, **Ctrl+Alt+J** focuses the next tiled window, **Ctrl+Alt+K** swaps its BSP slot, **Ctrl+Alt+H/L** adjusts the focused split (the first column in Columns, the master in Master / stack), **Ctrl+Alt+T** cycles the layout, **Ctrl+Alt+F** toggles floating, and **Ctrl+Alt+Shift+Left/Right** moves the focused window between virtual desktops when the Windows COM API is available. **Ctrl+Alt+Esc** releases windows and restores their saved positions.
+- Next event from a secret iCal link (Google, Outlook, iCloud), with an automation that pauses music a minute before a meeting.
+- Acrylic glass, top or bottom (drag it to an edge), full-width or pill, taskbar auto-hide restored safely on quit or crash.
+- Alt+Space keyboard launcher with fuzzy search, plus a theme engine with built-in and custom JSON themes, a theme gallery, and a wallpaper-derived dynamic accent.
+- Ships with a one-click installer (`setup.bat`) and auto-hide for fullscreen apps; releases on GitHub.
+- Also: quick toggles (Wi-Fi, Bluetooth, airplane), volume control, world clocks, storage/network/progress widgets, a script widget, pinned apps with running dots and Alt+1–9 switching, and per-widget popups (calendar month view, full todos, multiple notes).
+- Now growing into a desktop shell: split toolbar and dock layouts, a bar on each display, workspaces with virtual desktops, a custom Alt+Tab switcher, draggable desktop widgets, and an opt-in tiling window manager (BSP, Columns, Master/stack).
 
-## Backup and move your settings
+## What I work with
 
-Settings are stored in `%APPDATA%\Windows Bar\config.json`. Close Windows Bar, then use:
+Python · pandas · NumPy · scikit-learn · FastAPI · PySide6 · JavaScript · HTML/CSS · Three.js · Whisper (whisper.cpp) · Ollama · Chrome DevTools Protocol · Git/GitHub
 
-```
-python windowsbar.py --export-config my-settings.json
-python windowsbar.py --import-config my-settings.json
-```
+## Currently exploring
 
-Export leaves private values (your calendar link) blank unless you add `--include-private`. Import validates the file first and keeps your previous settings as `config.before-import.bak`. When an update changes the settings format, the old file is kept once as `config.pre-v<N>.bak` before it is rewritten.
+Statistical inference, model evaluation, and production-oriented machine-learning workflows.
 
-## Plugins and language
+## Contact
 
-Open **Settings > General** to:
-
-- pick the interface **language** (applies right away; menus, popups, the launcher and widget titles are translatable; no non-English catalog ships yet; see `docs/localization.md`);
-- turn on **widget plugins**: drop a `.py` file into `%APPDATA%\\Windows Bar\\plugins` (example: `plugins-example/hello_plugin.py`), enable the option, then tick the widget in Settings > Widgets. Plugins run with your permissions, so only use ones you trust;
-- **export / import** your settings from a file dialog (the same as the `--export-config` / `--import-config` command-line flags above).
-
-## Performance
-
-- Native window-reservation calls are made only when the dock's size/edge actually changes, not on every digit change.
-- Widgets with changing numbers keep a stable width.
-- Slow Windows calls (window list, Recycle Bin count) run in background threads, never on the UI thread.
-- Background work only runs for widgets that are switched on (weather, calendar, media, GitHub, Stripe, folder scans stop when their widget is off).
-- The dock background is cached instead of repainted from scratch; cards stop updating while the dock is slid away (timers stay accurate).
-- Large calendars are parsed incrementally and old one-off events are dropped early.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
-
+- Email: gouravmanjhi97@gmail.com
+- GitHub: [github.com/gour4v97](https://github.com/gour4v97)
