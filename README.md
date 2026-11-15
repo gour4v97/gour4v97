@@ -23,6 +23,8 @@ Two Windows voice apps in pure Python, sharing one local voice engine, now built
 - **Remi Browser** — a voice-controlled browser (`Ctrl+Alt+B`): 40+ commands in English/Hindi/Hinglish drive Chrome/Edge over the Chrome DevTools Protocol — open, search, scroll, tabs, click, play/pause — with spoken confirmations.
 - A persistent whisper.cpp server keeps the model warm and shared between both apps; on an NVIDIA GPU transcription takes ~0.3 s (CUDA build), with a transparent CPU fallback.
 - Local LLM support: conversational commands are resolved on-device through Ollama, LM Studio, or llama.cpp backends, with a modular skills system for custom commands.
+- November latency pass: per-stage pipeline timing, a warm mic between commands, non-blocking speech, instant-paste dictation, and one reused browser connection. The README's benchmark table puts total turnaround at ~315 ms, down from ~1,645 ms on the RTX 4050 laptop (the README's own figures).
+- Also new: a desktop HUD pill in the browser agent (Listening / Thinking / Done / Error), voice-activity detection, a SQLite memory store that remembers the last ten turns ("open that again"), and new skills — a Hinglish morning digest and voice control for Calculator, Notepad, and more.
 - A local REST API (`remi serve`), a Click CLI (`remi setup`, `remi doctor`, `remi llm`, `remi skill`), and a one-click Windows installer with a setup wizard.
 
 ### Voice Trans
