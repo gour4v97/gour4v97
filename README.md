@@ -69,7 +69,7 @@ Python · pandas · NumPy · scikit-learn · FastAPI · PySide6 · JavaScript ·
 
 ## Currently exploring
 
-Statistical inference, SQL, model evaluation, and production-oriented machine-learning workflows.
+Statistical inference, model evaluation, and production-oriented machine-learning workflows.
 
 ## Contact
 
