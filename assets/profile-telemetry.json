@@ -1,8 +1,8 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-14T08:49:26.786263+00:00",
-  "total_commits": 310,
-  "active_days": 10,
+  "generated_at": "2026-11-16T13:54:09.758101+00:00",
+  "total_commits": 357,
+  "active_days": 13,
   "months": [
     {
       "month": "2025-12",
@@ -50,12 +50,13 @@
     },
     {
       "month": "2026-11",
-      "commits": 279
+      "commits": 326
     }
   ],
   "languages": {
-    "Python": 573976,
-    "PowerShell": 10672,
+    "Python": 708230,
+    "PowerShell": 16746,
+    "Inno Setup": 1323,
     "Batchfile": 2072,
     "JavaScript": 44566,
     "CSS": 28798,
@@ -70,13 +71,14 @@
       "description": "Windows Bar: A smart dock for Windows 10/11 in Python (PySide6): 28 live widgets, calendar, media, Stripe, screen time, glass effect. No account, no telemetry",
       "language": "Python",
       "languages": {
-        "Python": 382449,
-        "PowerShell": 736,
+        "Python": 442197,
+        "PowerShell": 2577,
+        "Inno Setup": 1323,
         "Batchfile": 473
       },
-      "commits": 239,
+      "commits": 260,
       "created": "2026-11-04",
-      "pushed": "2026-11-09",
+      "pushed": "2026-11-16",
       "url": "https://github.com/gour4v97/windowbar"
     },
     {
@@ -84,15 +86,15 @@
       "description": "Remi Suite \u2014 two Windows voice apps in pure Python: push-to-talk dictation and a voice-controlled browser over CDP. English/Hindi/Hinglish, fully local Whisper transcription.",
       "language": "Python",
       "languages": {
-        "Python": 147325,
-        "PowerShell": 7050,
+        "Python": 221831,
+        "PowerShell": 11283,
         "Batchfile": 1599,
         "Shell": 1438,
         "Makefile": 1006
       },
-      "commits": 20,
+      "commits": 46,
       "created": "2026-11-01",
-      "pushed": "2026-11-09",
+      "pushed": "2026-11-16",
       "url": "https://github.com/gour4v97/remi"
     },
     {
