@@ -26,13 +26,14 @@ jobs:
         run: python3 scripts/generate_profile_telemetry.py
       - name: Commit refreshed assets
         run: |
-          if git diff --quiet -- assets/; then
-            echo "No telemetry changes."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/profile-activity-light.svg assets/profile-activity-dark.svg assets/profile-stack-light.svg assets/profile-stack-dark.svg assets/profile-telemetry.json
-          git commit -m "chore: refresh profile telemetry"
-          git pull --rebase origin "${GITHUB_REF_NAME:-main}"
-          git push
+              git fetch origin main
+              if git diff --quiet origin/main -- assets/; then
+                echo "Panels already up to date on origin/main."
+                exit 0
+              fi
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add assets/profile-activity-light.svg assets/profile-activity-dark.svg assets/profile-stack-light.svg assets/profile-stack-dark.svg assets/profile-telemetry.json
+              git commit -m "chore: refresh profile telemetry"
+              git pull --rebase origin "${GITHUB_REF_NAME:-main}"
+              git push
