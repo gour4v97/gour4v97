@@ -89,7 +89,9 @@ def collect():
           f"GH_TOKEN set={bool(os.environ.get('GH_TOKEN'))}")
     if pat:
         try:
-            owned = api(f"/user/repos?per_page=100&type=all"
+            # NOTE: do NOT add type=... here — GitHub returns 422 when
+            # type is combined with affiliation.
+            owned = api(f"/user/repos?per_page=100"
                         f"&affiliation=owner&sort=created")
             print(f"telemetry: /user/repos listed {len(owned)} repos")
             seen = {r["name"] for r in all_repos}
