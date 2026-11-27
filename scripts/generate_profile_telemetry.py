@@ -7,9 +7,16 @@ timestamps, languages and repo metadata. Writes:
   assets/profile-stack-light.svg    / profile-stack-dark.svg
   assets/profile-telemetry.json
 
-Uses GH_TOKEN or GITHUB_TOKEN from the environment when present (the
-refresh workflow provides one); unauthenticated runs also work for
-public data, just with lower rate limits.
+Private repositories are included in the totals when a personal access
+token with repo scope is available as PROFILE_TELEMETRY_TOKEN (the
+refresh workflow reads it from the PROFILE_TELEMETRY_TOKEN secret).
+Private repos are NEVER named in any output: their commits and language
+bytes feed the totals, and the stack panel shows them only as one
+aggregate "Private projects" row with no names, descriptions or links.
+Without that token the script falls back to public repositories only,
+using GH_TOKEN or GITHUB_TOKEN when present (the refresh workflow
+provides one); unauthenticated runs also work for public data, just
+with lower rate limits.
 """
 import json
 import os
@@ -45,21 +52,39 @@ THEMES = {
 }
 
 
+def token():
+    # PROFILE_TELEMETRY_TOKEN is a PAT with repo scope: the only token
+    # that can see private repositories. GH_TOKEN / GITHUB_TOKEN (the
+    # workflow's default token) can only see public repositories, and
+    # /user/repos as the Actions bot would not list the user's repos.
+    return (os.environ.get("PROFILE_TELEMETRY_TOKEN")
+            or os.environ.get("GH_TOKEN")
+            or os.environ.get("GITHUB_TOKEN"))
+
+
 def api(path):
     req = urllib.request.Request(f"https://api.github.com{path}")
     req.add_header("Accept", "application/vnd.github+json")
     req.add_header("User-Agent", "profile-telemetry")
-    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
-    if token:
-        req.add_header("Authorization", f"Bearer {token}")
+    tok = token()
+    if tok:
+        req.add_header("Authorization", f"Bearer {tok}")
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.load(resp)
 
 
 def collect():
-    repos = [r for r in api(f"/users/{USER}/repos?per_page=100&sort=created")
+    if os.environ.get("PROFILE_TELEMETRY_TOKEN"):
+        # Authenticated-user endpoint: lists public AND private repos
+        # the token owner owns. Only usable with a real PAT.
+        all_repos = api(f"/user/repos?per_page=100&type=all"
+                        f"&affiliation=owner&sort=created")
+    else:
+        all_repos = api(f"/users/{USER}/repos?per_page=100&sort=created")
+    repos = [r for r in all_repos
              if not r["fork"] and r["name"] != USER]
     projects, all_dates, lang_bytes = [], [], Counter()
+    private = {"count": 0, "commits": 0}
     for repo in repos:
         name = repo["name"]
         langs = api(f"/repos/{USER}/{name}/languages")
@@ -77,6 +102,12 @@ def collect():
                 break
             page += 1
         all_dates.extend(dates)
+        if repo.get("private"):
+            # Aggregate only: never record a private repo's name,
+            # description or URL anywhere in the outputs.
+            private["count"] += 1
+            private["commits"] += len(dates)
+            continue
         projects.append({
             "name": name,
             "description": repo.get("description") or FALLBACK_DESC.get(name, ""),
@@ -88,7 +119,7 @@ def collect():
             "url": repo["html_url"],
         })
     projects.sort(key=lambda p: p["pushed"], reverse=True)
-    return projects, sorted(all_dates), lang_bytes
+    return projects, sorted(all_dates), lang_bytes, private
 
 
 def esc(text):
@@ -117,11 +148,16 @@ def stat_tile(x, theme, label, value, sub=""):
             + sub_svg)
 
 
-def activity_svg(theme_name, projects, dates, months):
+def activity_svg(theme_name, projects, dates, months, private):
     t = THEMES[theme_name]
     total = len(dates)
     active_days = len({d.date() for d in dates})
     latest = dates[-1].strftime("%d %b %Y") if dates else "—"
+    total_projects = len(projects) + private["count"]
+    private_note = (f", incl. {private['count']} private"
+                    if private["count"] else "")
+    commit_sub = ("public + private" if private["commits"]
+                  else "all public projects")
     max_count = max([c for _, c in months] + [1])
     bars = []
     chart_x, chart_y, chart_w, chart_h = 48, 182, 784, 138
@@ -164,14 +200,14 @@ def activity_svg(theme_name, projects, dates, months):
     height = 492
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="880" height="{height}" viewBox="0 0 880 {height}" role="img" aria-labelledby="t d">
 <title id="t">Gourav Manjhi — build activity</title>
-<desc id="d">{total} commits across {len(projects)} public projects; monthly commits for the last 12 months and commits by weekday.</desc>
+<desc id="d">{total} commits across {total_projects} projects{private_note}; monthly commits for the last 12 months and commits by weekday.</desc>
 {style_block()}
 <rect x="1" y="1" width="878" height="{height - 2}" rx="12" fill="{t['bg']}" stroke="{t['border']}"/>
 <text x="48" y="34" font-size="19" font-weight="700" fill="{t['text']}">Build activity</text>
 <text x="832" y="34" font-size="12" fill="{t['muted']}" text-anchor="end">last 12 months</text>
-{stat_tile(48, t, "Commits", str(total), "all public projects")}
+{stat_tile(48, t, "Commits", str(total), commit_sub)}
 {stat_tile(268, t, "Active days", str(active_days))}
-{stat_tile(488, t, "Public projects", str(len(projects)))}
+{stat_tile(488, t, "Projects", str(total_projects))}
 {stat_tile(688, t, "Latest commit", latest)}
 <line x1="48" y1="150" x2="832" y2="150" stroke="{t['grid']}"/>
 {''.join(bars)}
@@ -182,7 +218,7 @@ def activity_svg(theme_name, projects, dates, months):
 """
 
 
-def stack_svg(theme_name, projects, lang_bytes):
+def stack_svg(theme_name, projects, lang_bytes, private):
     t = THEMES[theme_name]
     total_bytes = sum(lang_bytes.values()) or 1
     langs = lang_bytes.most_common(6)
@@ -214,14 +250,23 @@ def stack_svg(theme_name, projects, lang_bytes):
             f'<text x="832" y="{y}" font-size="12" fill="{t["muted"]}" text-anchor="end">{p["commits"]} commits · last pushed {p["pushed"]}</text>'
             f'<text x="72" y="{y + 20}" font-size="12" fill="{t["muted"]}">{esc(desc)}</text>')
         y += 52
+    if private["count"]:
+        # One aggregate row only: no private repo is ever named, and
+        # no description or link is shown for any of them.
+        rows.append(
+            f'<circle cx="56" cy="{y - 5}" r="5" fill="{t["muted"]}"/>'
+            f'<text x="72" y="{y}" font-size="15" font-weight="600" fill="{t["text"]}">Private projects</text>'
+            f'<text x="832" y="{y}" font-size="12" fill="{t["muted"]}" text-anchor="end">{private["commits"]} commits · {private["count"]} repos</text>'
+            f'<text x="72" y="{y + 20}" font-size="12" fill="{t["muted"]}">Totals include private repositories — names stay private.</text>')
+        y += 52
     height = y + 12
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="880" height="{height}" viewBox="0 0 880 {height}" role="img" aria-labelledby="t d">
 <title id="t">Projects and stack</title>
-<desc id="d">Language mix by bytes across public projects, and each project with its commit count and last push date.</desc>
+<desc id="d">Language mix by bytes across all projects (private totals included, names never shown), and each public project with its commit count and last push date.</desc>
 {style_block()}
 <rect x="1" y="1" width="878" height="{height - 2}" rx="12" fill="{t['bg']}" stroke="{t['border']}"/>
 <text x="48" y="34" font-size="19" font-weight="700" fill="{t['text']}">Projects and stack</text>
-<text x="48" y="66" font-size="12" fill="{t['muted']}">LANGUAGE MIX (BY BYTES, ALL PUBLIC PROJECTS)</text>
+<text x="48" y="66" font-size="12" fill="{t['muted']}">LANGUAGE MIX (BY BYTES, ALL PROJECTS)</text>
 {''.join(segments)}
 {''.join(legend)}
 <line x1="48" y1="188" x2="832" y2="188" stroke="{t['grid']}"/>
@@ -231,7 +276,7 @@ def stack_svg(theme_name, projects, lang_bytes):
 
 
 def main():
-    projects, dates, lang_bytes = collect()
+    projects, dates, lang_bytes, private = collect()
     now = datetime.now(timezone.utc)
     months, y, m = [], now.year, now.month
     for _ in range(12):
@@ -245,9 +290,9 @@ def main():
     ASSETS.mkdir(exist_ok=True)
     for theme in ("light", "dark"):
         (ASSETS / f"profile-activity-{theme}.svg").write_text(
-            activity_svg(theme, projects, dates, month_pairs), encoding="utf-8")
+            activity_svg(theme, projects, dates, month_pairs, private), encoding="utf-8")
         (ASSETS / f"profile-stack-{theme}.svg").write_text(
-            stack_svg(theme, projects, lang_bytes), encoding="utf-8")
+            stack_svg(theme, projects, lang_bytes, private), encoding="utf-8")
     telemetry = {
         "user": USER,
         "generated_at": now.isoformat(),
@@ -256,10 +301,14 @@ def main():
         "months": [{"month": f"{y}-{m:02d}", "commits": c} for (y, m), (_, c) in zip(months, month_pairs)],
         "languages": dict(lang_bytes),
         "projects": projects,
+        # Aggregate counts only: no private repo name ever lands here.
+        "private_projects": private,
     }
     (ASSETS / "profile-telemetry.json").write_text(
         json.dumps(telemetry, indent=2), encoding="utf-8")
-    print(f"{len(dates)} commits, {len(projects)} projects, languages={dict(lang_bytes)}")
+    print(f"{len(dates)} commits ({private['commits']} private), "
+          f"{len(projects)} public + {private['count']} private projects, "
+          f"languages={dict(lang_bytes)}")
 
 
 if __name__ == "__main__":
