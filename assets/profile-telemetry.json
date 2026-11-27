@@ -1,7 +1,7 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-27T09:51:44.770048+00:00",
-  "total_commits": 412,
+  "generated_at": "2026-11-27T14:50:07.443117+00:00",
+  "total_commits": 426,
   "active_days": 22,
   "months": [
     {
@@ -50,7 +50,7 @@
     },
     {
       "month": "2026-11",
-      "commits": 380
+      "commits": 394
     }
   ],
   "languages": {
@@ -58,20 +58,20 @@
     "PowerShell": 21872,
     "Inno Setup": 1366,
     "Batchfile": 2551,
-    "JavaScript": 136056,
+    "JavaScript": 136141,
     "CSS": 41828,
     "HTML": 11359,
     "Shell": 240291,
     "Makefile": 1144,
     "Dockerfile": 218,
-    "Rust": 7700406,
+    "Rust": 7719894,
     "C++": 5949674,
     "C": 2155898,
     "Metal": 641954,
     "GLSL": 383781,
     "CMake": 170991,
     "Objective-C": 120774,
-    "Svelte": 74150,
+    "Svelte": 76824,
     "QML": 14705,
     "C#": 86644
   },
@@ -141,6 +141,6 @@
   ],
   "private_projects": {
     "count": 4,
-    "commits": 15
+    "commits": 29
   }
 }
