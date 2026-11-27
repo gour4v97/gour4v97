@@ -84,26 +84,18 @@ def collect():
     # the merge is a no-op and the public-only fallback stays intact.
     all_repos = api(f"/users/{USER}/repos?per_page=100&sort=created")
     pat = os.environ.get("PROFILE_TELEMETRY_TOKEN") or os.environ.get("GH_TOKEN")
-    # Diagnostics only: never print a token value, only whether one is set.
-    print(f"telemetry: PROFILE_TELEMETRY_TOKEN set={bool(os.environ.get('PROFILE_TELEMETRY_TOKEN'))}, "
-          f"GH_TOKEN set={bool(os.environ.get('GH_TOKEN'))}")
     if pat:
         try:
             # NOTE: do NOT add type=... here — GitHub returns 422 when
             # type is combined with affiliation.
             owned = api(f"/user/repos?per_page=100"
                         f"&affiliation=owner&sort=created")
-            print(f"telemetry: /user/repos listed {len(owned)} repos")
             seen = {r["name"] for r in all_repos}
-            merged = 0
             for r in owned:
                 if r.get("owner", {}).get("login") == USER and r["name"] not in seen:
                     all_repos.append(r)
-                    merged += 1
-            print(f"telemetry: merged {merged} additional repos owned by {USER}")
-        except Exception as e:
-            # HTTP status/reason only, e.g. "HTTP Error 401: Unauthorized".
-            print(f"telemetry: /user/repos failed: {e}")
+        except Exception:
+            pass
     repos = [r for r in all_repos
              if not r["fork"] and r["name"] != USER]
     projects, all_dates, lang_bytes = [], [], Counter()
