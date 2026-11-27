@@ -1,8 +1,8 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-23T16:20:41.371472+00:00",
-  "total_commits": 374,
-  "active_days": 17,
+  "generated_at": "2026-11-27T09:18:39.683282+00:00",
+  "total_commits": 397,
+  "active_days": 21,
   "months": [
     {
       "month": "2025-12",
@@ -50,51 +50,35 @@
     },
     {
       "month": "2026-11",
-      "commits": 343
+      "commits": 366
     }
   ],
   "languages": {
-    "Python": 709748,
-    "PowerShell": 16746,
-    "Inno Setup": 1323,
-    "Batchfile": 2314,
-    "JavaScript": 44566,
-    "CSS": 28798,
-    "HTML": 9854,
+    "Python": 725979,
+    "PowerShell": 20550,
+    "Inno Setup": 1366,
+    "Batchfile": 2551,
+    "JavaScript": 47410,
+    "CSS": 29741,
+    "HTML": 9805,
     "Shell": 1438,
     "Makefile": 1144,
     "Dockerfile": 218
   },
   "projects": [
     {
-      "name": "remi",
-      "description": "Remi Suite \u2014 two Windows voice apps in pure Python: push-to-talk dictation and a voice-controlled browser over CDP. English/Hindi/Hinglish, fully local Whisper transcription.",
-      "language": "Python",
-      "languages": {
-        "Python": 221831,
-        "PowerShell": 11283,
-        "Batchfile": 1841,
-        "Shell": 1438,
-        "Makefile": 1006
-      },
-      "commits": 49,
-      "created": "2026-11-01",
-      "pushed": "2026-11-21",
-      "url": "https://github.com/gour4v97/remi"
-    },
-    {
       "name": "windowbar",
       "description": "Windows Bar: A smart dock for Windows 10/11 in Python (PySide6): 28 live widgets, calendar, media, Stripe, screen time, glass effect. No account, no telemetry",
       "language": "Python",
       "languages": {
-        "Python": 443715,
+        "Python": 446157,
         "PowerShell": 2577,
-        "Inno Setup": 1323,
+        "Inno Setup": 1366,
         "Batchfile": 473
       },
-      "commits": 274,
+      "commits": 284,
       "created": "2026-11-04",
-      "pushed": "2026-11-19",
+      "pushed": "2026-11-27",
       "url": "https://github.com/gour4v97/windowbar"
     },
     {
@@ -102,15 +86,31 @@
       "description": "Comet-style glassmorphism New Tab for Brave/Chrome \u2014 AI-first search, frosted glass cards, quick links, weather, deep customization.",
       "language": "JavaScript",
       "languages": {
-        "JavaScript": 44566,
-        "CSS": 17277,
-        "HTML": 5761,
-        "PowerShell": 2886
+        "JavaScript": 47410,
+        "CSS": 18220,
+        "HTML": 5712,
+        "PowerShell": 4348
       },
-      "commits": 19,
+      "commits": 21,
       "created": "2026-11-01",
-      "pushed": "2026-11-08",
+      "pushed": "2026-11-27",
       "url": "https://github.com/gour4v97/glasstab"
+    },
+    {
+      "name": "remi",
+      "description": "Remi Suite \u2014 two Windows voice apps in pure Python: push-to-talk dictation and a voice-controlled browser over CDP. English/Hindi/Hinglish, fully local Whisper transcription.",
+      "language": "Python",
+      "languages": {
+        "Python": 235620,
+        "PowerShell": 13625,
+        "Batchfile": 2078,
+        "Shell": 1438,
+        "Makefile": 1006
+      },
+      "commits": 59,
+      "created": "2026-11-01",
+      "pushed": "2026-11-27",
+      "url": "https://github.com/gour4v97/remi"
     },
     {
       "name": "3d-cardiovascular-risk-explorer",
@@ -123,9 +123,9 @@
         "Dockerfile": 218,
         "Makefile": 138
       },
-      "commits": 32,
+      "commits": 33,
       "created": "2026-10-15",
-      "pushed": "2026-11-01",
+      "pushed": "2026-11-27",
       "url": "https://github.com/gour4v97/3d-cardiovascular-risk-explorer"
     }
   ]
