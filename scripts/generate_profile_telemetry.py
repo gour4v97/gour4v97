@@ -8,8 +8,9 @@ timestamps, languages and repo metadata. Writes:
   assets/profile-telemetry.json
 
 Private repositories are included in the totals when a personal access
-token with repo scope is available as PROFILE_TELEMETRY_TOKEN (the
-refresh workflow reads it from the PROFILE_TELEMETRY_TOKEN secret).
+token with repo scope is available as PROFILE_TELEMETRY_TOKEN or
+GH_TOKEN (the refresh workflow passes the PROFILE_TELEMETRY_TOKEN
+secret as GH_TOKEN).
 Private repos are NEVER named in any output: their commits and language
 bytes feed the totals, and the stack panel shows them only as one
 aggregate "Private projects" row with no names, descriptions or links.
@@ -74,13 +75,25 @@ def api(path):
 
 
 def collect():
-    if os.environ.get("PROFILE_TELEMETRY_TOKEN"):
-        # Authenticated-user endpoint: lists public AND private repos
-        # the token owner owns. Only usable with a real PAT.
-        all_repos = api(f"/user/repos?per_page=100&type=all"
+    # Public repos are always listed through the public endpoint.
+    # When a PAT is available (PROFILE_TELEMETRY_TOKEN, or GH_TOKEN
+    # as the workflow passes the secret), also list the token owner's
+    # repos and merge in any private ones the public list missed.
+    # With only the workflow's default GITHUB_TOKEN this adds nothing:
+    # /user/repos as the Actions bot lists no repos owned by USER, so
+    # the merge is a no-op and the public-only fallback stays intact.
+    all_repos = api(f"/users/{USER}/repos?per_page=100&sort=created")
+    pat = os.environ.get("PROFILE_TELEMETRY_TOKEN") or os.environ.get("GH_TOKEN")
+    if pat:
+        try:
+            owned = api(f"/user/repos?per_page=100&type=all"
                         f"&affiliation=owner&sort=created")
-    else:
-        all_repos = api(f"/users/{USER}/repos?per_page=100&sort=created")
+            seen = {r["name"] for r in all_repos}
+            for r in owned:
+                if r.get("owner", {}).get("login") == USER and r["name"] not in seen:
+                    all_repos.append(r)
+        except Exception:
+            pass
     repos = [r for r in all_repos
              if not r["fork"] and r["name"] != USER]
     projects, all_dates, lang_bytes = [], [], Counter()
