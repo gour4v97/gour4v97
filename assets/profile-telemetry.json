@@ -1,7 +1,7 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-27T14:55:36.799288+00:00",
-  "total_commits": 426,
+  "generated_at": "2026-11-27T15:06:44.867692+00:00",
+  "total_commits": 435,
   "active_days": 22,
   "months": [
     {
@@ -50,17 +50,17 @@
     },
     {
       "month": "2026-11",
-      "commits": 394
+      "commits": 403
     }
   ],
   "languages": {
-    "Python": 1369606,
+    "Python": 1408566,
+    "HTML": 32489,
+    "CSS": 43770,
     "PowerShell": 21872,
     "Inno Setup": 1366,
     "Batchfile": 2551,
     "JavaScript": 136141,
-    "CSS": 41828,
-    "HTML": 11359,
     "Shell": 240291,
     "Makefile": 1144,
     "Dockerfile": 218,
@@ -77,6 +77,20 @@
   },
   "projects": [
     {
+      "name": "dockyard",
+      "description": "A lightweight Windows desktop environment inspired by Seelen UI, built with Python and WebView2.",
+      "language": "Python",
+      "languages": {
+        "Python": 38960,
+        "HTML": 21130,
+        "CSS": 1942
+      },
+      "commits": 1,
+      "created": "2026-11-27",
+      "pushed": "2026-11-27",
+      "url": "https://github.com/gour4v97/dockyard"
+    },
+    {
       "name": "windowbar",
       "description": "Windows Bar: A smart dock for Windows 10/11 in Python (PySide6): 28 live widgets, calendar, media, Stripe, screen time, glass effect. No account, no telemetry",
       "language": "Python",
@@ -86,7 +100,7 @@
         "Inno Setup": 1366,
         "Batchfile": 473
       },
-      "commits": 284,
+      "commits": 292,
       "created": "2026-11-04",
       "pushed": "2026-11-27",
       "url": "https://github.com/gour4v97/windowbar"
