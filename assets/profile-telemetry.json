@@ -1,8 +1,8 @@
 {
   "user": "gour4v97",
-  "generated_at": "2026-11-27T15:06:44.867692+00:00",
-  "total_commits": 435,
-  "active_days": 22,
+  "generated_at": "2026-11-28T08:05:57.302965+00:00",
+  "total_commits": 442,
+  "active_days": 23,
   "months": [
     {
       "month": "2025-12",
@@ -50,17 +50,18 @@
     },
     {
       "month": "2026-11",
-      "commits": 403
+      "commits": 410
     }
   ],
   "languages": {
-    "Python": 1408566,
-    "HTML": 32489,
-    "CSS": 43770,
+    "Python": 1485018,
+    "TypeScript": 8378,
+    "HTML": 36585,
+    "CSS": 55502,
     "PowerShell": 21872,
     "Inno Setup": 1366,
     "Batchfile": 2551,
-    "JavaScript": 136141,
+    "JavaScript": 194557,
     "Shell": 240291,
     "Makefile": 1144,
     "Dockerfile": 218,
@@ -71,31 +72,32 @@
     "GLSL": 383781,
     "CMake": 170991,
     "Objective-C": 120774,
-    "Svelte": 76824,
+    "Svelte": 153576,
     "QML": 14705,
     "C#": 86644
   },
   "projects": [
     {
-      "name": "dockyard",
-      "description": "A lightweight Windows desktop environment inspired by Seelen UI, built with Python and WebView2.",
+      "name": "DropFix",
+      "description": "",
       "language": "Python",
       "languages": {
-        "Python": 38960,
-        "HTML": 21130,
-        "CSS": 1942
+        "Python": 15859,
+        "TypeScript": 8378,
+        "HTML": 689,
+        "CSS": 127
       },
-      "commits": 1,
-      "created": "2026-11-27",
-      "pushed": "2026-11-27",
-      "url": "https://github.com/gour4v97/dockyard"
+      "commits": 7,
+      "created": "2026-11-28",
+      "pushed": "2026-11-28",
+      "url": "https://github.com/gour4v97/DropFix"
     },
     {
       "name": "windowbar",
       "description": "Windows Bar: A smart dock for Windows 10/11 in Python (PySide6): 28 live widgets, calendar, media, Stripe, screen time, glass effect. No account, no telemetry",
       "language": "Python",
       "languages": {
-        "Python": 446157,
+        "Python": 460144,
         "PowerShell": 2577,
         "Inno Setup": 1366,
         "Batchfile": 473
@@ -154,7 +156,7 @@
     }
   ],
   "private_projects": {
-    "count": 4,
-    "commits": 29
+    "count": 5,
+    "commits": 30
   }
 }
